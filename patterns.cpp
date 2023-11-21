@@ -271,7 +271,7 @@ int main()
     // patternPr8(4);
     // patternPr9(4);
     // patternPr10(4);
-    patternPr11(4);
+    // patternPr11(4);
 
     return 0;
 }
