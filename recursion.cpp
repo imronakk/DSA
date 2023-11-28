@@ -119,6 +119,53 @@ vector<int> reverseArray(int n, vector<int> &nums)
     return nums;
 }
 
+// Problem 8
+
+bool checkString(string &str, int i)
+{
+    if (i >= (str.size() / 2))
+    {
+        return true;
+    }
+    if (str[i] != str[str.size() - i - 1])
+    {
+        return false;
+    }
+    return checkString(str, i + 1);
+}
+
+bool isPalindrome(string &str)
+{
+    return checkString(str, 0);
+}
+
+int fibonacciNth(int n){
+    if(n<=1){
+        return n;
+    }
+    int lastEle = fibonacciNth(n - 1);
+    int secondLastEle = fibonacciNth(n - 2);
+    return lastEle + secondLastEle;
+}
+// Problem 8.1
+int fibonacci(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+vector<int> generateFibonacciNumbers(int n)
+{
+    vector<int> v;
+    for (int i = 0; i < n; i++)
+    {
+        v.push_back(fibonacci(i));
+    }
+    return v;
+}
 int main()
 {
     // PROBLEM 1
@@ -136,37 +183,43 @@ int main()
 
     // Problem 5 -- returns factorial values which is less than or equals to the n;
 
-    vector<long long> result = factorialNumbers(7);
-    for (int i = 0; i < result.size(); i++)
-    {
+    // vector<long long> result = factorialNumbers(7);
+    // for (int i = 0; i < result.size(); i++)
+    // {
         // cout << result[i] << " ";
-    }
+    // }
 
     // Problem 6 --Swap the array
 
-    int i = 0, size;
-    cout << "Enter size of the array: ";
-    cin >> size;
-    int a[size];
-    while (i < size)
-    {
-        cout << "Enter Elements of the array: ";
-        cin >> a[i];
-        i++;
-    }
-    cout<<"Before swap: "<<endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout<<endl;
-    swapArray(0, a, size);
-    cout << "After swap: " << endl;
+    // int i = 0, size;
+    // cout << "Enter size of the array: ";
+    // cin >> size;
+    // int a[size];
+    // while (i < size)
+    // {
+    //     cout << "Enter Elements of the array: ";
+    //     cin >> a[i];
+    //     i++;
+    // }
+    // cout<<"Before swap: "<<endl;
+    // for (int i = 0; i < size; i++)
+    // {
+    //     cout << a[i] << " ";
+    // }
+    // cout<<endl;
+    // swapArray(0, a, size);
+    // cout << "After swap: " << endl;
 
-    for (int i = 0; i < size; i++){
-        cout << a[i] << " ";
-    }
+    // for (int i = 0; i < size; i++){
+    //     cout << a[i] << " ";
+    // }
 
-    
+    // Problemm 7 -- Check the string is palindrome or not
+
+    // Problem 8 -- Fibonacci Series for nth element 
+    int num;
+    cout<<"Enter Number: ";
+    cin>>num;
+    cout << "Fibonacci Series Value is: " << fibonacciNth(num);
     return 0;
 }
